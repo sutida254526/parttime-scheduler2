@@ -1,0 +1,29 @@
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+
+# Streamlit
+.streamlit/
+
+# Environment files
+.env
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+
+# Output files
+*.xlsx
+*.csv
+*.log
