@@ -56,7 +56,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- ช่องกรอกชื่อพนักงาน ---
-employee_names_input = st.text_input(" ", placeholder="ตัวอย่าง: แนน, บอล, มิว, เจ")
+employee_names_input = st.text_input("กรอกชื่อพนักงาน (คั่นด้วย ,)")
 employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
 num_employees = len(employee_names)
 
