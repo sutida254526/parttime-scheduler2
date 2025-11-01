@@ -4,6 +4,9 @@ app_M2T1P8.py
 Solver สำหรับตารางพนักงานพาร์ทไทม์
 ใช้ร่วมกับ Streamlit app (app_ver_2.py)
 """
+import random, numpy as np
+random.seed(42)
+np.random.seed(42)
 
 import pulp
 import random
