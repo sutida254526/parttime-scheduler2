@@ -21,6 +21,7 @@ def solver_parttime(data):
     num_employees = data["num_employees"]
     W_per_t = data["W_per_t"]
     max_shift_i = data["max_shift_i"]
+    min_shift_i = data.get("min_shift_i")  # ใส่ค่า default 1 ถ้าไม่ได้ส่งเข้ามา
     all_employees_avail = data["P_idt"]
     cost_per_shift = data["cost_per_shift"]
     employee_absent = data.get("absent", {})
@@ -34,6 +35,7 @@ def solver_parttime(data):
     C_it = {(i, t): cost_per_shift[t] for i in I for t in T}
     W_dt = {(d, t): W_per_t[t] for d in D for t in T}
     maxShift_i = {i: max_shift_i for i in I}
+    minShift_i = {i: min_shift_i for i in I}
 
     # ====== Model ======
     model = pulp.LpProblem("PartTime_Scheduling", pulp.LpMinimize)
@@ -70,11 +72,11 @@ def solver_parttime(data):
 
     # 5.3 แต่ละคนต้องทำงานหลักอย่างน้อย 1 กะ/สัปดาห์
     for i in I:
-        model += pulp.lpSum(M[i][d][t] for d in D for t in T) >= 1
+        model += pulp.lpSum(M[i][d][t] for d in D for t in T) >= minShift_i[i]
 
     # 5.4 แต่ละคนต้องทำงานสำรองอย่างน้อย 1 กะ/สัปดาห์
     for i in I:
-        model += pulp.lpSum(B[i][d][t] for d in D for t in T) >= 1
+        model += pulp.lpSum(B[i][d][t] for d in D for t in T) >= minShift_i[i]
 
     # 5.5 จำกัดกะสูงสุดต่อสัปดาห์ (หลัก)
     for i in I:
