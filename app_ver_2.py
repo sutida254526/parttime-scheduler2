@@ -239,31 +239,35 @@ if st.button("สร้างตารางงาน"):
     st.success(f"ค่าใช้จ่ายรวม: {result['total_cost']} บาท/สัปดาห์")
 
     # --- สร้างตาราง HTML ---
-    day_names = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"]
-    
-    table_html = """
-    <style>
-    table {border-collapse: collapse; width: 100%;}
-    th, td {border: 1px solid #ccc; padding: 8px; text-align: center;}
-    th {background-color: #c6dafc;}
-    .main {background-color: #e7e7e7;}
-    .backup {background-color: #ffffff;}
-    </style>
-    <table>
-        <tr>
-            <th>วัน/กะ</th>"""    
-    for day in day_names:
-        table_html += f"<th>{day}</th>"
+day_names = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"]
+
+table_html = """
+<style>
+table {border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;}
+th, td {border: 1px solid #ccc; padding: 8px; text-align: center; vertical-align: middle;}
+th {background-color: #4a90e2; color: white;}
+.first-col {background-color: #c6dafc; font-weight: bold;} /* สีคอลัมน์แรก */
+.main {background-color: #e7e7e7; padding: 4px; border-radius: 4px; margin-bottom: 2px;}
+.backup {background-color: #dff0d8; padding: 4px; border-radius: 4px;}
+.shift-cell {display: flex; flex-direction: column; align-items: center; justify-content: center;}
+</style>
+<table>
+    <tr>
+        <th class="first-col">วัน/กะ</th>"""    
+
+for day in day_names:
+    table_html += f"<th>{day}</th>"
+table_html += "</tr>"
+
+for shift in range(1,5):
+    table_html += f"<tr><td class='first-col'>กะ {shift}</td>"  # เพิ่ม class สำหรับคอลัมน์แรก
+    for day in range(1,7):
+        main_emps = ", ".join(str(emp) for emp in result['main'].get((day,shift), []))
+        backup_emps = ", ".join(str(emp) for emp in result['backup'].get((day,shift), []))
+        cell_content = f"<div class='shift-cell'><div class='main'>{main_emps}</div><div class='backup'>{backup_emps}</div></div>"
+        table_html += f"<td>{cell_content}</td>"
     table_html += "</tr>"
 
-    for shift in range(1,5):
-        table_html += f"<tr><td>{shift}</td>"
-        for day in range(1,7):
-           main_emps = ", ".join(str(emp) for emp in result['main'].get((day,shift), []))
-           backup_emps = ", ".join(str(emp) for emp in result['backup'].get((day,shift), []))
-           cell_content = f"<div class='main'>{main_emps}</div><div class='backup'>{backup_emps}</div>"
-           table_html += f"<td>{cell_content}</td>"
-        table_html += "</tr>"
-    table_html += "</table>"
+table_html += "</table>"
 
-    st.markdown(table_html, unsafe_allow_html=True)
+st.markdown(table_html, unsafe_allow_html=True)
