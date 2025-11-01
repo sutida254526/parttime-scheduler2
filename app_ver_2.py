@@ -43,11 +43,11 @@ st.markdown("""
         justify-content: center; 
         color: white; 
         font-weight: bold;
-        font-size: 14px;
+        font-size: 16px;
         margin-right: 10px;">
         1
     </div>
-     <h2 style="margin: 0;">รายชื่อพนักงาน</h2>
+     <h3 style="margin: 0;">รายชื่อพนักงาน</h3>
 </div>
 """, unsafe_allow_html=True)
 
@@ -80,11 +80,11 @@ st.markdown("""
         justify-content: center; 
         color: white; 
         font-weight: bold;
-        font-size: 14px;
+        font-size: 16px;
         margin-right: 10px;">
         2
     </div>
-     <h2 style="margin: 0;">เงื่อนไขพนักงาน (วันและกะที่สะดวก)</h2>
+     <h3 style="margin: 0;">เงื่อนไขพนักงาน (วันและกะที่สะดวก)</h3>
 </div>
 """, unsafe_allow_html=True)
 
