@@ -197,16 +197,26 @@ with col2:
  
 
 # --- ปุ่ม Solve ---
-if st.button("สร้างตารางงาน"):
-    data = {
-        "num_employees": num_employees,
-        "W_per_t": W_per_t,
-        "max_shift_i": max_shift,
-        "min_shift_i": min_shift,  # เพิ่มตรงนี้
-        "P_idt": all_employees_avail,
-        "cost_per_shift": {1:320,2:160,3:160,4:160},
-        "absent": {}  # ป้องกัน KeyError
-    }
+data = {
+    "num_employees": num_employees,
+    "W_per_t": {
+        "main": W_per_t,
+        "backup": W_backup
+    },
+    "max_shift_i": {
+        "main": max_shift_main,
+        "backup": max_shift_backup
+    },
+    "min_shift_i": {
+        "main": min_shift_main,
+        "backup": min_shift_backup
+    },
+    "P_idt": all_employees_avail,
+    "cost_per_shift": {1:320,2:160,3:160,4:160},
+    "absent": {}
+}
+
+
     result = solver_parttime(data)
 
     st.success(f"ค่าใช้จ่ายรวม: {result['total_cost']} บาท/สัปดาห์")
