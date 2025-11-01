@@ -48,10 +48,10 @@ st.markdown("""
         margin-right: 10px;">
         1
     </div>
-    <h2 style="margin: -15;">รายชื่อพนักงาน</h2>
+    <h2 style="margin: 0;">รายชื่อพนักงาน</h2>
 </div>
 
-<p style="color:#555; margin-top:0; margin-bottom:4px;">
+<p style="color:#555; margin-top:-15; margin-bottom:4px;">
 กรอกรายชื่อพนักงาน (คั่นชื่อด้วย ,)
 </p>
 """, unsafe_allow_html=True)
