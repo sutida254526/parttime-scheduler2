@@ -238,15 +238,32 @@ if st.button("สร้างตารางงาน"):
 
     st.success(f"ค่าใช้จ่ายรวม: {result['total_cost']} บาท/สัปดาห์")
 
-    st.subheader("ตารางพนักงานหลัก (Main)")
-    for d in range(1,7):
-        st.write(f"Day {d}")
-        for t in range(1,5):
-            st.write(f"Shift {t}: {result['main'][(d,t)]}")
+    # --- สร้างตาราง HTML ---
+    day_names = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"]
+    
+    table_html = """
+    <style>
+    table {border-collapse: collapse; width: 100%;}
+    th, td {border: 1px solid #ccc; padding: 8px; text-align: center;}
+    th {background-color: #c6dafc;}
+    .main {background-color: #e7e7e7;}
+    .backup {background-color: #ffffff;}
+    </style>
+    <table>
+        <tr>
+            <th>วัน/กะ</th>"""    
+    for day in day_names:
+        table_html += f"<th>{day}</th>"
+    table_html += "</tr>"
 
-    st.subheader("ตารางพนักงานสำรอง (Backup)")
-    for d in range(1,7):
-        st.write(f"Day {d}")
-        for t in range(1,5):
-            st.write(f"Shift {t}: {result['backup'][(d,t)]}")
+    for shift in range(1,5):
+        table_html += f"<tr><td>{shift}</td>"
+        for day in range(1,7):
+            main_emps = ", ".join(result['main'].get((day,shift), []))
+            backup_emps = ", ".join(result['backup'].get((day,shift), []))
+            cell_content = f"<div class='main'>{main_emps}</div><div class='backup'>{backup_emps}</div>"
+            table_html += f"<td>{cell_content}</td>"
+        table_html += "</tr>"
+    table_html += "</table>"
 
+    st.markdown(table_html, unsafe_allow_html=True)
