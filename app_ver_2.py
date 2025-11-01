@@ -248,8 +248,8 @@ if st.button("สร้างตารางงาน"):
     font-family: Arial, sans-serif;
     }
     th, td {border: 1px solid #ccc; padding: 8px; text-align: center;}
-    th {background-color: #CADCAE;}
-    .first-col {background-color: #E1E9C9; font-weight: bold;}  /* สีคอลัมน์แรก */
+    th {background-color: #F2EDD1;}
+    .first-col {background-color: #F9CB99; font-weight: bold;}  /* สีคอลัมน์แรก */
     .main {background-color: #EDA35A;}
     .backup {background-color: #FEE8D9;}
     </style>
