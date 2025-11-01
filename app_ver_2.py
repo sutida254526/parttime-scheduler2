@@ -47,13 +47,11 @@ st.markdown("""
         margin-right: 10px;">
         1
     </div>
-    <h2 style="margin: 0;">รายชื่อพนักงาน</h2>
+    <h1 style="margin: 0;">รายชื่อพนักงาน</h1>
 </div>
 
 <p style="color:#555; margin-top:0; margin-bottom:2px;">
-กรอกรายชื่อพนักงาน (คั่นชื่อด้วย ,)
-employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
-num_employees = len(employee_names)
+
 </p>
 """, unsafe_allow_html=True)
 
