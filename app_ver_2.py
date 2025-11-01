@@ -50,12 +50,7 @@ st.markdown("""
     </div>
     <h2 style="margin: 0;">รายชื่อพนักงาน</h2>
 </div>
-
-<p style="color:#555; margin-top:-15; margin-bottom:4px;">
-กรอกรายชื่อพนักงาน (คั่นชื่อด้วย ,)
-</p>
-""", unsafe_allow_html=True)
-
+employee_names_input = st.text_input("กรอกรายชื่อพนักงาน (คั่นด้วย ,)")
 # --- ช่องกรอกชื่อพนักงาน ---
 # ใช้ช่องกรอกที่ไม่มี label เพื่อให้กล่องอยู่ชิดคำอธิบายมากขึ้น
 employee_names_input = st.text_input("", placeholder="ตัวอย่าง: แนน, บอล, มิว, เจ")
