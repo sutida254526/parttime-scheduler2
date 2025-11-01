@@ -41,7 +41,7 @@ st.markdown("""
 st.markdown("""
 <div class="header-section">
     <h1>🗓️ Part-time Employee Scheduler</h1>
-     <p style="text-align: center;">จัดตารางพนักงานพาร์ทไทม์สำหรับร้านอาหาร</p>
+     <p>จัดตารางพนักงานพาร์ทไทม์สำหรับร้านอาหาร</p>
 </div>
 """, unsafe_allow_html=True)
 #st.title("🗓️ Part-time Employee Scheduler")
