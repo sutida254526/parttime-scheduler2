@@ -23,6 +23,32 @@ st.markdown("จัดตารางพนักงานพาร์ทไท�
 
 
 
+# --- ตั้งค่า page ---
+st.set_page_config(page_title="Part-time Scheduler", layout="wide")
+
+# --- Header ด้านบนสุดแบบสีเต็ม และรูปด้านขวา ---
+st.markdown(f"""
+<div style="
+    background-color:#80A1BA; 
+    padding:20px; 
+    border-radius:0px 0px 12px 12px;
+    display:flex; 
+    align-items:center;
+    justify-content: space-between;
+">
+    <div style="color:white; font-size:28px; font-weight:bold;">
+        🗓️ Part-time Employee Scheduler
+    </div>
+    <div>
+        <img src="https://i.ibb.co/7y6G0bQ/cute-cartoon.png" width="80">
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# --- ตัวอย่าง content ด้านล่าง ---
+st.markdown("จัดตารางพนักงานพาร์ทไทม์สำหรับร้านอาหาร")
+
+
 # --- กรอกชื่อพนักงาน ---
 #employee_names_input = st.text_input("กรอกชื่อพนักงาน (คั่นด้วย ,)")
 #employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
