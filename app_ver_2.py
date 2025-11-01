@@ -21,8 +21,10 @@ st.set_page_config(page_title="Part-time Scheduler", layout="wide")
 st.title("🗓️ Part-time Employee Scheduler")
 st.markdown("จัดตารางพนักงานพาร์ทไทม์สำหรับร้านอาหาร")
 
+
+
 # --- กรอกชื่อพนักงาน ---
-employee_names_input = st.text_input("กรอกชื่อพนักงาน (คั่นด้วย ,)", value=")
+employee_names_input = st.text_input("กรอกชื่อพนักงาน (คั่นด้วย ,)")
 employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
 num_employees = len(employee_names)
 
@@ -40,7 +42,15 @@ for idx, name in enumerate(employee_names, start=1):
     with st.expander(f"{name}"):
         days = st.multiselect("วันสะดวก", list(day_map.keys()), key=f"days_{idx}")
         shifts = st.multiselect("กะสะดวก", list(shift_map.keys()), key=f"shifts_{idx}")
-        emp_avail = {day_map[d]: [shift_map[s] for s in shifts] for d in days}
+        
+        # สร้าง dict สำหรับวันทั้งหมดก่อน
+        emp_avail = {}
+        for d_name, d_num in day_map.items():
+            # ถ้าวันนั้นเลือกวัน ก็เอากะที่เลือก ถ้าไม่เลือกเลย ให้เป็น []
+            if d_name in days:
+                emp_avail[d_num] = [shift_map[s] for s in shifts] if shifts else []
+            else:
+                emp_avail[d_num] = []
         all_employees_avail[idx] = emp_avail
 
 # --- จำนวนพนักงานหลักต่อกะ ---
