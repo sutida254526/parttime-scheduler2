@@ -52,13 +52,10 @@ st.markdown("""
 
 <p style="color:#555; margin-top:0; margin-bottom:2px;">
 กรอกรายชื่อพนักงาน (คั่นชื่อด้วย ,)
-</p>
-""", unsafe_allow_html=True)
-
-# --- ช่องกรอกชื่อพนักงาน ---
-employee_names_input = st.text_input("กรอกชื่อพนักงาน (คั่นด้วย ,)")
 employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
 num_employees = len(employee_names)
+</p>
+""", unsafe_allow_html=True)
 
 # --- แสดงผลหลังกรอก ---
 if employee_names:
