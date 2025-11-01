@@ -258,7 +258,7 @@ if st.button("สร้างตารางงาน"):
     table_html += "</tr>"
 
     for shift in range(1,5):
-        table_html += f"<tr><td>{shift}</td>"
+        table_html += f"<tr><td class='first-col'>{shift}</td>"
         for day in range(1,7):
            main_emps = ", ".join(str(emp) for emp in result['main'].get((day,shift), []))
            backup_emps = ", ".join(str(emp) for emp in result['backup'].get((day,shift), []))
