@@ -63,7 +63,7 @@ W_backup = {t: st.number_input(f"กะ {t}", min_value=0, value=1, step=1, key=
 
 # --- จำกัดจำนวนกะสูงสุด ---
 st.subheader("จำนวนกะสูงสุด/สัปดาห์ ต่อคน")
-max_shift = st.number_input(min_value=1, value=3)
+max_shift = st.number_input("", min_value=1, value=3)
 
 # --- ปุ่ม Solve ---
 if st.button("สร้างตารางงาน"):
