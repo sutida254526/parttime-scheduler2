@@ -231,6 +231,7 @@ if st.button("สร้างตารางงาน"):
         "max_shift_i": max_shift_backup,
         "min_shift_i": min_shift_backup,
         "P_idt": all_employees_avail,
+        main_emps = ", ".join(str(emp) for emp in result['main'].get((day,shift), []))
         "cost_per_shift": {1:320,2:160,3:160,4:160},
         "absent": {}  # ป้องกัน KeyError
     }
