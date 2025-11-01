@@ -109,8 +109,14 @@ def solver_parttime(data):
                 ) <= 1
                 
     for d in D:
-    available = [i for i in I if any(all_employees_avail[i].get(d, []) and 1 in all_employees_avail[i][d])]
-    print(f"Day {d} available for Shift 1:", available)
+        available = [i for i in I if any(all_employees_avail[i].get(d, []) and 1 in all_employees_avail[i][d])]
+        print(f"Day {d} available for Shift 1:", available)
+        
+    for d in range(1,7):
+        for t in range(1,5):
+            avail = [i for i in data["P_idt"] if d in data["P_idt"][i] and t in data["P_idt"][i][d]]
+            if len(avail) == 0:
+                st.warning(f"⚠️ ไม่มีพนักงานว่างใน Day {d}, Shift {t}")
 
     # ====== Solve ======
     solver = pulp.PULP_CBC_CMD(msg=False, options=["randomSeed=42", "threads=1"])
