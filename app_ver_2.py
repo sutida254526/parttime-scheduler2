@@ -17,9 +17,35 @@ random.seed(42)
 np.random.seed(42)
 
 st.set_page_config(page_title="Part-time Scheduler", layout="wide")
+# --- CSS สีพื้นหลังส่วนบน ---
+st.markdown("""
+    <style>
+    /* ส่วน title และคำอธิบายด้านบน */
+    .header-section {
+        background-color: #E7F2EF;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    .header-section h1 {
+        margin: 0;
+    }
+    .header-section p {
+        margin: 5px 0 0 0;
+        color: #333;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
-st.title("🗓️ Part-time Employee Scheduler")
-st.markdown("จัดตารางพนักงานพาร์ทไทม์สำหรับร้านอาหาร")
+# --- ส่วน title และคำอธิบาย ---
+st.markdown("""
+<div class="header-section">
+    <h1>🗓️ Part-time Employee Scheduler</h1>
+    <p>จัดตารางพนักงานพาร์ทไทม์สำหรับร้านอาหาร</p>
+</div>
+""", unsafe_allow_html=True)
+#st.title("🗓️ Part-time Employee Scheduler")
+#st.markdown("จัดตารางพนักงานพาร์ทไทม์สำหรับร้านอาหาร")
 
 
 
