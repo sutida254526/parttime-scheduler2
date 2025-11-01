@@ -29,10 +29,11 @@ st.markdown("จัดตารางพนักงานพาร์ทไท�
 #num_employees = len(employee_names)
 
 
+import streamlit as st
 
 # --- หัวข้อใหญ่พร้อมวงกลมเลข 1 ---
 st.markdown("""
-<div style="display:flex; align-items:center; margin-bottom:10px;">
+<div style="display:flex; align-items:center; margin-bottom:6px;">
     <div style="
         width: 36px; 
         height: 36px; 
@@ -50,13 +51,24 @@ st.markdown("""
     <h2 style="margin: 0;">รายชื่อพนักงาน</h2>
 </div>
 
-<p style="color:#555; margin-top:0;">
+<p style="color:#555; margin-top:0; margin-bottom:4px;">
 กรอกรายชื่อพนักงาน (คั่นชื่อด้วย ,)
 </p>
 """, unsafe_allow_html=True)
 
 # --- ช่องกรอกชื่อพนักงาน ---
-employee_names_input = st.text_input(" ", placeholder="ตัวอย่าง: แนน, บอล, มิว, เจ")
+# ใช้ช่องกรอกที่ไม่มี label เพื่อให้กล่องอยู่ชิดคำอธิบายมากขึ้น
+employee_names_input = st.text_input("", placeholder="ตัวอย่าง: แนน, บอล, มิว, เจ")
+
+# --- ประมวลผลรายชื่อ ---
+employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
+num_employees = len(employee_names)
+
+# --- แสดงผลเมื่อกรอกแล้ว ---
+if employee_names:
+    st.success(f"✅ มีพนักงานทั้งหมด {num_employees} คน")
+    st.write("รายชื่อ:", employee_names)
+
 
 # --- ประมวลผลรายชื่อ ---
 employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
