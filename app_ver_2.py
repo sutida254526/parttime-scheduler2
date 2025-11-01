@@ -62,11 +62,31 @@ num_employees = len(employee_names)
     #st.write("รายชื่อ:", employee_names)
 
 
-
-
 # --- เลือกเดือน ---
 month = st.selectbox("เลือกเดือน", ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน",
                                      "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"])
+
+
+# --- หัวข้อใหญ่พร้อมวงกลมเลข 2 ---
+st.markdown("""
+<div style="display:flex; align-items:center; margin-bottom:4px;">
+    <div style="
+        width: 36px; 
+        height: 36px; 
+        background-color: #1A2A4F; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        color: white; 
+        font-weight: bold;
+        font-size: 18px;
+        margin-right: 10px;">
+        2
+    </div>
+     <h2 style="margin: 0;">เงื่อนไขพนักงาน (วันและกะที่สะดวก)</h2>
+</div>
+""", unsafe_allow_html=True)
 
 # --- กรอกเงื่อนไขพนักงาน ---
 st.subheader("เงื่อนไขพนักงาน (วันและกะที่สะดวก)")
