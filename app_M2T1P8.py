@@ -4,13 +4,13 @@ app_M2T1P8.py
 Solver สำหรับตารางพนักงานพาร์ทไทม์
 ใช้ร่วมกับ Streamlit app (app_ver_2.py)
 """
-import random, numpy as np
-random.seed(42)
-np.random.seed(42)
+
 
 import pulp
 import random
 import numpy as np
+random.seed(42)
+np.random.seed(42)
 
 def solver_parttime(data):
     # ตั้งค่า seed ให้ผลลัพธ์คงที่
@@ -57,56 +57,60 @@ def solver_parttime(data):
 
     # ====== Constraints ======
 
-    # 1️⃣ จำนวนพนักงานหลักตามช่วงเวลา
+
+    # 5.1 จำนวนพนักงานหลักตามช่วงเวลา
     for d in D:
         for t in T:
             model += pulp.lpSum(M[i][d][t] for i in I) >= W_dt[(d, t)]
 
-    # 2️⃣ จำนวนพนักงานสำรองตามช่วงเวลา
+    # 5.2 จำนวนพนักงานสำรองตามช่วงเวลา
     for d in D:
         for t in T:
             model += pulp.lpSum(B[i][d][t] for i in I) >= W_dt[(d, t)]
 
-    # 3️⃣ แต่ละคนต้องทำงานหลักอย่างน้อย 1 กะ/สัปดาห์
+    # 5.3 แต่ละคนต้องทำงานหลักอย่างน้อย 1 กะ/สัปดาห์
     for i in I:
         model += pulp.lpSum(M[i][d][t] for d in D for t in T) >= 1
 
-    # 4️⃣ แต่ละคนต้องทำงานสำรองอย่างน้อย 1 กะ/สัปดาห์
+    # 5.4 แต่ละคนต้องทำงานสำรองอย่างน้อย 1 กะ/สัปดาห์
     for i in I:
         model += pulp.lpSum(B[i][d][t] for d in D for t in T) >= 1
 
-    # 5️⃣ จำกัดจำนวนกะสูงสุดต่อสัปดาห์
+    # 5.5 จำกัดกะสูงสุดต่อสัปดาห์ (หลัก)
     for i in I:
-        model += pulp.lpSum(M[i][d][t] + B[i][d][t] for d in D for t in T) <= maxShift_i[i]
+        model += pulp.lpSum(M[i][d][t] for d in D for t in T) <= maxShift_i[i]
 
-    # 6️⃣ ห้ามเป็นหลักและสำรองในช่วงเวลาเดียวกัน
+    # 5.6 จำกัดกะสูงสุดต่อสัปดาห์ (สำรอง)
+    for i in I:
+        model += pulp.lpSum(B[i][d][t] for d in D for t in T) <= maxShift_i[i]
+    # 5.7 ห้ามเป็นหลักและสำรองในช่วงเวลาเดียวกัน
     for i in I:
         for d in D:
             for t in T:
                 model += M[i][d][t] + B[i][d][t] <= 1
-
-    # 7️⃣ ต้องเลือกจากพนักงานที่ว่าง
+    # 5.8 ต้องเลือกจากพนักงานที่ว่าง
     for i in I:
         for d in D:
             for t in T:
-                model += M[i][d][t] <= P_idt[(i, d, t)]
-                model += B[i][d][t] <= P_idt[(i, d, t)]
+              model += M[i][d][t] <= P_idt[(i, d, t)]
+              model += B[i][d][t] <= P_idt[(i, d, t)]
 
-    # 8️⃣ ห้ามให้คนที่ "ขาด" มาทำกะนั้น
-    for i in I:
-        if i in employee_absent:
-            for (d, t) in employee_absent[i]:
-                model += M[i][d][t] == 0
-                model += B[i][d][t] == 0
-
-    # 9️⃣ ความต่างของจำนวนกะที่แต่ละคนได้รับไม่เกิน 1
+    # 5.9 ความต่างของงานที่แต่ละคนได้รับไม่เกิน 1 กะ
     for i in I:
         for k in I:
             if i != k:
-                diff = pulp.lpSum(M[i][d][t] + B[i][d][t] for d in D for t in T) - \
-                       pulp.lpSum(M[k][d][t] + B[k][d][t] for d in D for t in T)
-                model += diff <= 1
-                model += -diff <= 1
+                model += (
+                    pulp.lpSum(M[i][d][t] + B[i][d][t] for d in D for t in T) -
+                    pulp.lpSum(M[k][d][t] + B[k][d][t] for d in D for t in T)
+                ) <= 1
+                model += (
+                    pulp.lpSum(M[k][d][t] + B[k][d][t] for d in D for t in T) -
+                    pulp.lpSum(M[i][d][t] + B[i][d][t] for d in D for t in T)
+                ) <= 1
+                
+    for d in D:
+    available = [i for i in I if any(all_employees_avail[i].get(d, []) and 1 in all_employees_avail[i][d])]
+    print(f"Day {d} available for Shift 1:", available)
 
     # ====== Solve ======
     solver = pulp.PULP_CBC_CMD(msg=False, options=["randomSeed=42", "threads=1"])
@@ -116,6 +120,7 @@ def solver_parttime(data):
     main_schedule = {(d, t): [i for i in I if pulp.value(M[i][d][t]) == 1] for d in D for t in T}
     backup_schedule = {(d, t): [i for i in I if pulp.value(B[i][d][t]) == 1] for d in D for t in T}
     total_cost = pulp.value(model.objective)
+    
 
     return {
         "main": main_schedule,
