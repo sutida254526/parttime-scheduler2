@@ -245,10 +245,10 @@ if st.button("สร้างตารางงาน"):
     <style>
     table {border-collapse: collapse; width: 100%;}
     th, td {border: 1px solid #ccc; padding: 8px; text-align: center;}
-    th {background-color: #c6dafc;}
-    .first-col {background-color: #a0c4ff; font-weight: bold;}  /* สีคอลัมน์แรก */
-    .main {background-color: #e7e7e7;}
-    .backup {background-color: #ffffff;}
+    th {background-color: #777C6D;}
+    .first-col {background-color: #B7B89F; font-weight: bold;}  /* สีคอลัมน์แรก */
+    .main {background-color: #CBCBCB;}
+    .backup {background-color: #EEEEEE;}
     </style>
     <table>
         <tr>
