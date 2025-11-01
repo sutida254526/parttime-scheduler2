@@ -1,4 +1,4 @@
-streamlit
-pulp
-pandas
-numpy
+streamlit>=1.39.0
+pulp>=2.8.0
+pandas>=2.2.0
+numpy>=1.26.0
