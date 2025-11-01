@@ -43,7 +43,7 @@ st.markdown("""
         justify-content: center; 
         color: white; 
         font-weight: bold;
-        font-size: 18px;
+        font-size: 14px;
         margin-right: 10px;">
         1
     </div>
@@ -80,7 +80,7 @@ st.markdown("""
         justify-content: center; 
         color: white; 
         font-weight: bold;
-        font-size: 18px;
+        font-size: 14px;
         margin-right: 10px;">
         2
     </div>
@@ -122,7 +122,7 @@ st.markdown("""
         justify-content: center; 
         color: white; 
         font-weight: bold;
-        font-size: 18px;
+        font-size: 14px;
         margin-right: 10px;">
         3
     </div>
@@ -149,7 +149,7 @@ st.markdown("""
         justify-content: center; 
         color: white; 
         font-weight: bold;
-        font-size: 18px;
+        font-size: 14px;
         margin-right: 10px;">
         4
     </div>
@@ -176,7 +176,7 @@ st.markdown("""
         justify-content: center; 
         color: white; 
         font-weight: bold;
-        font-size: 18px;
+        font-size: 14px;
         margin-right: 10px;">
         5
     </div>
