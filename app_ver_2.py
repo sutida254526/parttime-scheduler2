@@ -57,9 +57,9 @@ employee_names = [name.strip() for name in employee_names_input.split(",") if na
 num_employees = len(employee_names)
 
 # --- แสดงผลหลังกรอก ---
-if employee_names:
-    st.success(f"✅ มีพนักงานทั้งหมด {num_employees} คน")
-    st.write("รายชื่อ:", employee_names)
+#if employee_names:
+   # st.success(f"✅ มีพนักงานทั้งหมด {num_employees} คน")
+    #st.write("รายชื่อ:", employee_names)
 
    
 
