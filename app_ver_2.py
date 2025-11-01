@@ -43,7 +43,7 @@ st.markdown("""
         justify-content: center; 
         color: white; 
         font-weight: bold;
-        font-size: 16px;
+        font-size: 18px;
         margin-right: 10px;">
         1
     </div>
