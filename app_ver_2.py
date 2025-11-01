@@ -22,7 +22,7 @@ st.title("🗓️ Part-time Employee Scheduler")
 st.markdown("จัดตารางพนักงานพาร์ทไทม์สำหรับร้านอาหาร")
 
 # --- กรอกชื่อพนักงาน ---
-employee_names_input = st.text_input("กรอกชื่อพนักงาน (คั่นด้วย ,)")
+employee_names_input = st.text_input("กรอกชื่อพนักงาน (คั่นด้วย ,)", value=",".join(employee_names))
 employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
 num_employees = len(employee_names)
 
@@ -52,7 +52,8 @@ st.subheader("จำนวนพนักงานสำรองต่อกะ
 W_backup = {t: st.number_input(f"กะ {t}", min_value=0, value=1, step=1, key=f"backup_{t}") for t in range(1,5)}
 
 # --- จำกัดจำนวนกะสูงสุด ---
-max_shift = st.number_input("จำนวนกะสูงสุด/สัปดาห์ ต่อคน", min_value=1, value=3)
+st.subheader("จำนวนกะสูงสุด/สัปดาห์ ต่อคน")
+max_shift = st.number_input(min_value=1, value=3)
 
 # --- ปุ่ม Solve ---
 if st.button("สร้างตารางงาน"):
@@ -61,7 +62,8 @@ if st.button("สร้างตารางงาน"):
         "W_per_t": W_per_t,
         "max_shift_i": max_shift,
         "P_idt": all_employees_avail,
-        "cost_per_shift": {1:320,2:160,3:160,4:160}
+        "cost_per_shift": {1:320,2:160,3:160,4:160},
+        "absent": {}  # ป้องกัน KeyError
     }
     result = solver_parttime(data)
 
