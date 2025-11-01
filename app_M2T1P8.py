@@ -109,7 +109,7 @@ def solver_parttime(data):
                 ) <= 1
                 
     for d in D:
-        available = [i for i in I if any(all_employees_avail[i].get(d, []) and 1 in all_employees_avail[i][d])]
+            available = [i for i in I if any(all_employees_avail[i].get(d, []))]
         print(f"Day {d} available for Shift 1:", available)
         
     for d in range(1,7):
