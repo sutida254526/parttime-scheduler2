@@ -9,8 +9,8 @@ Original file is located at
 
 # app.py
 #import streamlit as st
-#from app_M2T1P8 import solver_parttime
-#import random, numpy as np
+from app_M2T1P8 import solver_parttime
+import random, numpy as np
 
 import streamlit as st
 
@@ -40,16 +40,16 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- ช่องกรอกชื่อพนักงาน ---
-employee_names_input = st.text_input(" ", placeholder="ตัวอย่าง: แนน, บอล, มิว, เจ")
+#employee_names_input = st.text_input(" ", placeholder="ตัวอย่าง: แนน, บอล, มิว, เจ")
 
 # --- ประมวลผลรายชื่อ ---
 employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
 num_employees = len(employee_names)
 
 # --- แสดงผลลัพธ์เมื่อกรอกแล้ว ---
-if employee_names:
-    st.success(f"✅ มีพนักงานทั้งหมด {num_employees} คน")
-    st.write("รายชื่อ:", employee_names)
+#if employee_names:
+   # st.success(f"✅ มีพนักงานทั้งหมด {num_employees} คน")
+   # st.write("รายชื่อ:", employee_names)
 
 
 # --- ตั้ง seed ---
