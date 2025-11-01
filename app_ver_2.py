@@ -215,8 +215,6 @@ data = {
     "cost_per_shift": {1:320,2:160,3:160,4:160},
     "absent": {}
 }
-
-
     result = solver_parttime(data)
 
     st.success(f"ค่าใช้จ่ายรวม: {result['total_cost']} บาท/สัปดาห์")
