@@ -23,9 +23,6 @@ st.markdown("จัดตารางพนักงานพาร์ทไท�
 
 
 
-# --- ตั้งค่า page ---
-st.set_page_config(page_title="Part-time Scheduler", layout="wide")
-
 # --- Header ด้านบนสุดแบบสีเต็ม และรูปด้านขวา ---
 st.markdown(f"""
 <div style="
