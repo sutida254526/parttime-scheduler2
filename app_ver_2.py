@@ -109,21 +109,92 @@ for idx, name in enumerate(employee_names, start=1):
                 emp_avail[d_num] = []
         all_employees_avail[idx] = emp_avail
 
-# --- จำนวนพนักงานหลักต่อกะ ---
-st.subheader("จำนวนพนักงานหลักต่อกะ")
-W_per_t = {t: st.number_input(f"กะ {t}", min_value=0, value=1, step=1, key=f"main_{t}") for t in range(1,5)}
+# --- 3 จำนวนพนักงานหลักต่อกะ ---
+st.markdown("""
+<div style="display:flex; align-items:center; margin-bottom:10px;">
+    <div style="
+        width: 36px; 
+        height: 36px; 
+        background-color: #1A2A4F; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        color: white; 
+        font-weight: bold;
+        font-size: 18px;
+        margin-right: 10px;">
+        3
+    </div>
+    <h2 style="margin: 0;">จำนวนพนักงานหลัก</h2>
+</div>
+<p style="color:#555; margin-top:0;">กรอกจำนวนพนักงานหลักที่ต้องการต่อแต่ละกะ</p>
+""", unsafe_allow_html=True)
 
-# --- จำนวนพนักงานสำรองต่อกะ ---
-st.subheader("จำนวนพนักงานสำรองต่อกะ")
-W_backup = {t: st.number_input(f"กะ {t}", min_value=0, value=1, step=1, key=f"backup_{t}") for t in range(1,5)}
+cols = st.columns(4)
+W_per_t = {}
+for t, col in enumerate(cols, start=1):
+    W_per_t[t] = col.number_input(f"กะ{t} ({t*2+9}:00-{t*2+11}:00)", min_value=0, value=1, step=1, key=f"main_{t}")
 
-# --- จำกัดจำนวนกะสูงสุด ---
-st.subheader("จำนวนกะสูงสุด/สัปดาห์ ต่อคน")
-max_shift = st.number_input("", min_value=1, value=3)
+# --- 4 จำนวนพนักงานสำรองต่อกะ ---
+st.markdown("""
+<div style="display:flex; align-items:center; margin-bottom:10px;">
+    <div style="
+        width: 36px; 
+        height: 36px; 
+        background-color: #1A2A4F; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        color: white; 
+        font-weight: bold;
+        font-size: 18px;
+        margin-right: 10px;">
+        4
+    </div>
+    <h2 style="margin: 0;">จำนวนพนักงานสำรอง</h2>
+</div>
+<p style="color:#555; margin-top:0;">กรอกจำนวนพนักงานสำรองที่ต้องการต่อแต่ละกะ</p>
+""", unsafe_allow_html=True)
 
-# --- จำกัดจำนวนกะต่ำสุด ---
-st.subheader("จำนวนกะต่ำสุด/สัปดาห์ ต่อคน")
-min_shift = st.number_input("", min_value=0, value=1) 
+cols = st.columns(4)
+W_backup = {}
+for t, col in enumerate(cols, start=1):
+    W_backup[t] = col.number_input(f"กะ{t} ({t*2+9}:00-{t*2+11}:00)", min_value=0, value=1, step=1, key=f"backup_{t}")
+
+# --- 5 จำกัดจำนวนกะสูงสุด/ต่ำสุดต่อสัปดาห์ ---
+st.markdown("""
+<div style="display:flex; align-items:center; margin-bottom:10px;">
+    <div style="
+        width: 36px; 
+        height: 36px; 
+        background-color: #1A2A4F; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        color: white; 
+        font-weight: bold;
+        font-size: 18px;
+        margin-right: 10px;">
+        5
+    </div>
+    <h2 style="margin: 0;">จำกัดจำนวนกะ</h2>
+</div>
+<p style="color:#555; margin-top:0;">กำหนดจำนวนกะสูงสุดและต่ำสุด/สัปดาห์ สำหรับพนักงานแต่ละประเภท</p>
+""", unsafe_allow_html=True)
+
+col1, col2 = st.columns(2)
+with col1:
+    st.markdown("**พนักงานหลัก**")
+    max_shift_main = st.number_input("สูงสุด (กะ/สัปดาห์)", min_value=1, value=5)
+    min_shift_main = st.number_input("ต่ำสุด (กะ/สัปดาห์)", min_value=0, value=2)
+with col2:
+    st.markdown("**พนักงานสำรอง**")
+    max_shift_backup = st.number_input("สูงสุด (กะ/สัปดาห์)", min_value=1, value=3)
+    min_shift_backup = st.number_input("ต่ำสุด (กะ/สัปดาห์)", min_value=0, value=1)
+ 
 
 # --- ปุ่ม Solve ---
 if st.button("สร้างตารางงาน"):
