@@ -139,7 +139,7 @@ num_employees = len(employee_names)
 import pulp
 import random, numpy as np
 import streamlit as st
-from solver import solver_parttime
+from app_M2T1P8 import solver_parttime
 
 st.set_page_config(page_title="Part-time Scheduler", layout="wide")
 st.title("Part-time Employee Scheduler")
