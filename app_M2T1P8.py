@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-app_M2T1P8.py
+app_M2T1P8.py 
 Solver สำหรับตารางพนักงานพาร์ทไทม์
 ใช้ร่วมกับ Streamlit app (app_ver_2.py)
 """
