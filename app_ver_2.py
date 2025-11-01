@@ -243,7 +243,10 @@ if st.button("สร้างตารางงาน"):
     
     table_html = """
     <style>
-    table {border-collapse: collapse; width: 100%;}
+    table {border-collapse: collapse; width: 100%;
+    table-layout: fixed;  /* บังคับทุกคอลัมน์เท่ากัน */
+    font-family: Arial, sans-serif;
+    }
     th, td {border: 1px solid #ccc; padding: 8px; text-align: center;}
     th {background-color: #777C6D;}
     .first-col {background-color: #B7B89F; font-weight: bold;}  /* สีคอลัมน์แรก */
