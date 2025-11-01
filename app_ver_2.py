@@ -22,7 +22,7 @@ st.markdown("""
     <style>
     /* ส่วน title และคำอธิบายด้านบน */
     .header-section {
-        background-color: BBDCE5;
+        background-color: #BBDCE5;
         padding: 20px;
         border-radius: 8px;
         margin-bottom: 20px;
