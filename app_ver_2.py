@@ -65,12 +65,17 @@ W_backup = {t: st.number_input(f"กะ {t}", min_value=0, value=1, step=1, key=
 st.subheader("จำนวนกะสูงสุด/สัปดาห์ ต่อคน")
 max_shift = st.number_input("", min_value=1, value=3)
 
+# --- จำกัดจำนวนกะต่ำสุด ---
+st.subheader("จำนวนกะต่ำสุด/สัปดาห์ ต่อคน")
+min_shift = st.number_input("", min_value=0, value=1) 
+
 # --- ปุ่ม Solve ---
 if st.button("สร้างตารางงาน"):
     data = {
         "num_employees": num_employees,
         "W_per_t": W_per_t,
         "max_shift_i": max_shift,
+        "min_shift_i": min_shift,  # เพิ่มตรงนี้
         "P_idt": all_employees_avail,
         "cost_per_shift": {1:320,2:160,3:160,4:160},
         "absent": {}  # ป้องกัน KeyError
