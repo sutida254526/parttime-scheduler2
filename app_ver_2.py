@@ -8,9 +8,49 @@ Original file is located at
 """
 
 # app.py
+#import streamlit as st
+#from app_M2T1P8 import solver_parttime
+#import random, numpy as np
+
 import streamlit as st
-from app_M2T1P8 import solver_parttime
-import random, numpy as np
+
+# --- หัวข้อใหญ่พร้อมวงกลมเลข 1 ---
+st.markdown("""
+<div style="display:flex; align-items:center; margin-bottom:10px;">
+    <div style="
+        width: 36px; 
+        height: 36px; 
+        background-color: #1A2A4F; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        color: white; 
+        font-weight: bold;
+        font-size: 18px;
+        margin-right: 10px;">
+        1
+    </div>
+    <h2 style="margin: 0;">รายชื่อพนักงาน</h2>
+</div>
+
+<p style="color:#555; margin-top:0;">
+กรอกรายชื่อพนักงาน (คั่นชื่อด้วย ,)
+</p>
+""", unsafe_allow_html=True)
+
+# --- ช่องกรอกชื่อพนักงาน ---
+employee_names_input = st.text_input(" ", placeholder="ตัวอย่าง: แนน, บอล, มิว, เจ")
+
+# --- ประมวลผลรายชื่อ ---
+employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
+num_employees = len(employee_names)
+
+# --- แสดงผลลัพธ์เมื่อกรอกแล้ว ---
+if employee_names:
+    st.success(f"✅ มีพนักงานทั้งหมด {num_employees} คน")
+    st.write("รายชื่อ:", employee_names)
+
 
 # --- ตั้ง seed ---
 random.seed(42)
