@@ -7,7 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1owtezohLnn33qKd5WD0ZFL8dcB8PkcfN
 """
 
-pip install pulp
 
 all_employees_avail = {
     1: {  1: [1,2,3,4],
