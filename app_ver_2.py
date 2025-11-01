@@ -262,7 +262,7 @@ if st.button("สร้างตารางงาน"):
            main_emps = ", ".join(str(emp) for emp in result['main'].get((day,shift), []))
            backup_emps = ", ".join(str(emp) for emp in result['backup'].get((day,shift), []))
            cell_content = f"<div class='main'>{main_emps}</div><div class='backup'>{backup_emps}</div>"
-            table_html += f"<td>{cell_content}</td>"
+           table_html += f"<td>{cell_content}</td>"
         table_html += "</tr>"
     table_html += "</table>"
 
