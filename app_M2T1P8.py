@@ -23,7 +23,7 @@ def solver_parttime(data):
     max_shift_i = data["max_shift_i"]
     all_employees_avail = data["P_idt"]
     cost_per_shift = data["cost_per_shift"]
-    employee_absent = data["absent"]
+    employee_absent = data.get("absent", {})
 
     # ====== Sets ======
     I = range(1, num_employees + 1)   # พนักงานพาร์ทไทม์ i = 1..N
