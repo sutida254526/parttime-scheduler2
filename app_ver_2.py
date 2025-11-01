@@ -196,39 +196,31 @@ with col2:
     min_shift_backup = st.number_input("ต่ำสุด (กะ/สัปดาห์)", min_value=0, value=1)
  
 # --- ปุ่ม Solve ---
-data = {
-    "num_employees": num_employees,
-    "W_per_t": {
-        "main": W_per_t,
-        "backup": W_backup
-    },
-    "max_shift_i": {
-        "main": max_shift_main,
-        "backup": max_shift_backup
-    },
-    "min_shift_i": {
-        "main": min_shift_main,
-        "backup": min_shift_backup
-    },
-    "P_idt": all_employees_avail,
-    "cost_per_shift": {1:320,2:160,3:160,4:160},
-    "absent": {}
-}
+if st.button("สร้างตารางงาน"):
+    data = {
+        "num_employees": num_employees,
+        "W_per_t": W_per_t,
+        "max_shift_i": max_shift_main,
+        "min_shift_i": min_shift_main,  # เพิ่มตรงนี้
+        "max_shift_i": max_shift_backup,
+        "min_shift_i": min_shift_backup,
+        "P_idt": all_employees_avail,
+        "cost_per_shift": {1:320,2:160,3:160,4:160},
+        "absent": {}  # ป้องกัน KeyError
+    }
+    result = solver_parttime(data)
 
-# เรียก solver แบบปกติ ไม่มี indent เกิน
-result = solver_parttime(data)
+    st.success(f"ค่าใช้จ่ายรวม: {result['total_cost']} บาท/สัปดาห์")
 
-st.success(f"ค่าใช้จ่ายรวม: {result['total_cost']} บาท/สัปดาห์")
+    st.subheader("ตารางพนักงานหลัก (Main)")
+    for d in range(1,7):
+        st.write(f"Day {d}")
+        for t in range(1,5):
+            st.write(f"Shift {t}: {result['main'][(d,t)]}")
 
-st.subheader("ตารางพนักงานหลัก (Main)")
-for d in range(1,7):
-    st.write(f"Day {d}")
-    for t in range(1,5):
-        st.write(f"Shift {t}: {result['main'][(d,t)]}")
-
-st.subheader("ตารางพนักงานสำรอง (Backup)")
-for d in range(1,7):
-    st.write(f"Day {d}")
-    for t in range(1,5):
-        st.write(f"Shift {t}: {result['backup'][(d,t)]}")
+    st.subheader("ตารางพนักงานสำรอง (Backup)")
+    for d in range(1,7):
+        st.write(f"Day {d}")
+        for t in range(1,5):
+            st.write(f"Shift {t}: {result['backup'][(d,t)]}")
 
