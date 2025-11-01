@@ -246,6 +246,7 @@ if st.button("สร้างตารางงาน"):
     table {border-collapse: collapse; width: 100%;}
     th, td {border: 1px solid #ccc; padding: 8px; text-align: center;}
     th {background-color: #c6dafc;}
+    .first-col {background-color: #a0c4ff; font-weight: bold;}  /* สีคอลัมน์แรก */
     .main {background-color: #e7e7e7;}
     .backup {background-color: #ffffff;}
     </style>
