@@ -7,9 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/121fXPIYPnaG28exA5pFoZh3ZgMM79fz2
 """
 
-!pip install streamlit
-!pip install ortools
-
 # app.py
 import streamlit as st
 from app_M2T1P8 import solver_parttime  # ใส่ solver_parttime ไว้ในไฟล์แยก
