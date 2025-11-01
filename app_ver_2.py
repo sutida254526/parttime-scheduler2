@@ -80,7 +80,7 @@ st.markdown("""
         justify-content: center; 
         color: white; 
         font-weight: bold;
-        font-size: 16px;
+        font-size: 18px;
         margin-right: 10px;">
         2
     </div>
@@ -122,11 +122,11 @@ st.markdown("""
         justify-content: center; 
         color: white; 
         font-weight: bold;
-        font-size: 14px;
+        font-size: 18px;
         margin-right: 10px;">
         3
     </div>
-    <h2 style="margin: 0;">จำนวนพนักงานหลัก</h2>
+    <h3 style="margin: 0;">จำนวนพนักงานหลัก</h3>
 </div>
 <p style="color:#555; margin-top:0;">กรอกจำนวนพนักงานหลักที่ต้องการต่อแต่ละกะ</p>
 """, unsafe_allow_html=True)
@@ -149,11 +149,11 @@ st.markdown("""
         justify-content: center; 
         color: white; 
         font-weight: bold;
-        font-size: 14px;
+        font-size: 18px;
         margin-right: 10px;">
         4
     </div>
-    <h2 style="margin: 0;">จำนวนพนักงานสำรอง</h2>
+    <h3 style="margin: 0;">จำนวนพนักงานสำรอง</h3>
 </div>
 <p style="color:#555; margin-top:0;">กรอกจำนวนพนักงานสำรองที่ต้องการต่อแต่ละกะ</p>
 """, unsafe_allow_html=True)
@@ -176,11 +176,11 @@ st.markdown("""
         justify-content: center; 
         color: white; 
         font-weight: bold;
-        font-size: 14px;
+        font-size: 18px;
         margin-right: 10px;">
         5
     </div>
-    <h2 style="margin: 0;">จำกัดจำนวนกะ</h2>
+    <h3 style="margin: 0;">จำกัดจำนวนกะ</h3>
 </div>
 <p style="color:#555; margin-top:0;">กำหนดจำนวนกะสูงสุดและต่ำสุด/สัปดาห์ สำหรับพนักงานแต่ละประเภท</p>
 """, unsafe_allow_html=True)
