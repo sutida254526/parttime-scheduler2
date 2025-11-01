@@ -55,15 +55,6 @@ st.markdown("""
 </p>
 """, unsafe_allow_html=True)
 
-# --- ลดระยะห่างด้านบนของกล่องกรอก ---
-st.markdown("""
-<style>
-div[data-testid="stTextInput"] > div:first-child {
-    margin-top: -10px;
-}
-</style>
-""", unsafe_allow_html=True)
-
 # --- ช่องกรอกชื่อพนักงาน ---
 employee_names_input = st.text_input(" ", placeholder="ตัวอย่าง: แนน, บอล, มิว, เจ")
 employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
