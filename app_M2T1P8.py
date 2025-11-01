@@ -109,7 +109,7 @@ def solver_parttime(data):
                 model += -diff <= 1
 
     # ====== Solve ======
-    solver = pulp.PULP_CBC_CMD(msg=False, options=["randomSeed=42"])
+    solver = pulp.PULP_CBC_CMD(msg=False, options=["randomSeed=42", "threads=1"])
     model.solve(solver)
 
     # ====== Results ======
