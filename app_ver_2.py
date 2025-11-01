@@ -8,31 +8,10 @@ Original file is located at
 """
 
 # app.py
-#import streamlit as st
+import streamlit as st
 from app_M2T1P8 import solver_parttime
 import random, numpy as np
 
-import streamlit as st
-
-# --- หัวข้อใหญ่พร้อมวงกลมเลข 1 ---
-st.markdown("""
-<div style="display:flex; align-items:center; margin-bottom:10px;">
-    <div style="
-        width: 36px; 
-        height: 36px; 
-        background-color: #1A2A4F; 
-        border-radius: 50%; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        color: white; 
-        font-weight: bold;
-        font-size: 18px;
-        margin-right: 10px;">
-        1
-    </div>
-    <h2 style="margin: 0;">รายชื่อพนักงาน</h2>
-</div>
 
 <p style="color:#555; margin-top:0;">
 กรอกรายชื่อพนักงาน (คั่นชื่อด้วย ,)
