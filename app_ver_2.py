@@ -16,10 +16,32 @@ import random, numpy as np
 random.seed(42)
 np.random.seed(42)
 
+#st.set_page_config(page_title="Part-time Scheduler", layout="wide")
+
+#st.title("🗓️ Part-time Employee Scheduler")
+#st.markdown("จัดตารางพนักงานพาร์ทไทม์สำหรับร้านอาหาร")
+
 st.set_page_config(page_title="Part-time Scheduler", layout="wide")
 
-st.title("🗓️ Part-time Employee Scheduler")
-st.markdown("จัดตารางพนักงานพาร์ทไทม์สำหรับร้านอาหาร")
+# --- Header ด้านบนสุด สี E7F2EF + รูปด้านขวา ---
+st.markdown(f"""
+<div style="
+    background-color:#E7F2EF; 
+    padding:20px; 
+    border-radius:0px 0px 12px 12px;
+    display:flex; 
+    align-items:center;
+    justify-content: space-between;
+">
+    <div style="color:#1A2A4F; font-size:28px; font-weight:bold;">
+        🗓️ Part-time Employee Scheduler
+        <div style="font-size:16px; font-weight:normal;">จัดตารางพนักงานพาร์ทไทม์สำหรับร้านอาหาร</div>
+    </div>
+    <div>
+        <img src="data:image/png;base64,{st.image("/mnt/data/77d919a2-599d-4113-adf9-744aef56232f.png")}" width="150">
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 
 # --- กรอกชื่อพนักงาน ---
