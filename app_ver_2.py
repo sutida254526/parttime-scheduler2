@@ -22,7 +22,7 @@ st.title("🗓️ Part-time Employee Scheduler")
 st.markdown("จัดตารางพนักงานพาร์ทไทม์สำหรับร้านอาหาร")
 
 # --- กรอกชื่อพนักงาน ---
-employee_names_input = st.text_input("กรอกชื่อพนักงาน (คั่นด้วย ,)", value=",".join(employee_names))
+employee_names_input = st.text_input("กรอกชื่อพนักงาน (คั่นด้วย ,)", value=")
 employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
 num_employees = len(employee_names)
 
