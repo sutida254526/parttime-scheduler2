@@ -154,7 +154,7 @@ st.markdown("""
     </div>
     <h3 style="margin: 0;">จำนวนพนักงานหลัก</h3>
 </div>
-<p style="color:#555; margin-top:0;">กรอกจำนวนพนักงานหลักที่ต้องการต่อแต่ละกะ</p>
+<p style="color:#555; margin-top:0;">กรอกจำนวนพนักงานหลักที่ต้องการในแต่ละกะ</p>
 """, unsafe_allow_html=True)
 
 cols = st.columns(4)
@@ -181,7 +181,7 @@ st.markdown("""
     </div>
     <h3 style="margin: 0;">จำนวนพนักงานสำรอง</h3>
 </div>
-<p style="color:#555; margin-top:0;">กรอกจำนวนพนักงานสำรองที่ต้องการต่อแต่ละกะ</p>
+<p style="color:#555; margin-top:0;">กรอกจำนวนพนักงานสำรองที่ต้องการในแต่ละกะ</p>
 """, unsafe_allow_html=True)
 
 cols = st.columns(4)
