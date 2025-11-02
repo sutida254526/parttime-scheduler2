@@ -50,7 +50,7 @@ st.markdown("""
 
 
 # --- กรอกชื่อพนักงาน ---
-#employee_names_input = st.text_input("กรอกชื่อพนักงาน (คั่นด้วย ,)")
+#employee_names_input = st.text_input("it[กรอกพนักงานคนที่ (คั่นด้วย ,)")
 #employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
 #num_employees = len(employee_names)
 
@@ -73,12 +73,12 @@ st.markdown("""
         margin-right: 10px;">
         1
     </div>
-     <h3 style="margin: 0;">รายชื่อพนักงาน</h3>
+     <h3 style="margin: 0;">พนักงานคนที่</h3>
 </div>
 """, unsafe_allow_html=True)
 
 # --- กรอกชื่อพนักงาน ---
-employee_names_input = st.text_input("กรอกรายชื่อพนักงาน (คั่นด้วย ,)")
+employee_names_input = st.text_input("ระบุหมายเลขพนักงานที่ต้องการจัดตาราง (คั่นด้วย ,) เช่น 1,2,3")
 employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
 num_employees = len(employee_names)
 
