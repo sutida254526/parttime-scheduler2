@@ -78,7 +78,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- กรอกจำนวนพนักงาน ---
-st.markdown("### 👥 ขั้นตอนที่ 1: กรอกจำนวนพนักงาน")
 num_employees_total = st.number_input("กรอกจำนวนพนักงานทั้งหมด", min_value=1, value=5, step=1)
 
 # --- กรอกชื่อพนักงาน ---
