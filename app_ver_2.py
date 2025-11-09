@@ -117,7 +117,7 @@ st.markdown("""
     </div>
      <h3 style="margin: 0;">เงื่อนไขพนักงาน</h3>
 </div>
-<p style="color:#555; margin-top:0;">เลือกวันและกะที่สะดวก</p>
+<p style="color:#555; margin-top:0;">2.1 ลือกวันและกะที่สะดวก</p>
 """, unsafe_allow_html=True)
 
 
@@ -142,26 +142,8 @@ for idx, name in enumerate(employee_names, start=1):
                 emp_avail[d_num] = []
         all_employees_avail[idx] = emp_avail
 
-# --- 3 จำนวนพนักงานหลักต่อกะ ---
-st.markdown("""
-<div style="display:flex; align-items:center; margin-bottom:10px;">
-    <div style="
-        width: 36px; 
-        height: 36px; 
-        background-color: #1A2A4F; 
-        border-radius: 50%; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        color: white; 
-        font-weight: bold;
-        font-size: 18px;
-        margin-right: 10px;">
-        3
-    </div>
-    <h3 style="margin: 0;">จำนวนพนักงานหลัก</h3>
-</div>
-<p style="color:#555; margin-top:0;">กรอกจำนวนพนักงานหลักที่ต้องการในแต่ละกะ</p>
+
+<p style="color:#555; margin-top:0;">2.2 กรอกจำนวนพนักงานหลักที่ต้องการในแต่ละกะ</p>
 """, unsafe_allow_html=True)
 
 cols = st.columns(4)
