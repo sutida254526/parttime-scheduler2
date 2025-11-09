@@ -142,8 +142,51 @@ for idx, name in enumerate(employee_names, start=1):
                 emp_avail[d_num] = []
         all_employees_avail[idx] = emp_avail
 
+st.markdown("""
+<div style="display:flex; align-items:center; margin-left:48px; margin-bottom:4px;">
+    <div style="
+        width: 30px; 
+        height: 30px; 
+        background-color: #40679E; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        color: white; 
+        font-weight: bold;
+        font-size: 14px;
+        margin-right: 10px;">
+        2.1
+    </div>
+    <h4 style="margin: 0;">วันและกะที่สะดวก</h4>
+</div>
+<p style="color:#555; margin-left:48px; margin-top:0;">กรอกข้อมูลวันและกะที่พนักงานสะดวกในการทำงาน</p>
+""", unsafe_allow_html=True)
+จากนั้นถัดไปคุณสามารถเพิ่มหัวข้อ 3 ได้ในรูปแบบเดียวกัน เช่น 👇
 
-<p style="color:#555; margin-top:0;">2.2 กรอกจำนวนพนักงานหลักที่ต้องการในแต่ละกะ</p>
+python
+Copy code
+# --- หัวข้อใหญ่พร้อมวงกลมเลข 3 ---
+st.markdown("""
+<div style="display:flex; align-items:center; margin-top:20px; margin-bottom:6px;">
+    <div style="
+        width: 36px; 
+        height: 36px; 
+        background-color: #1A2A4F; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        color: white; 
+        font-weight: bold;
+        font-size: 18px;
+        margin-right: 10px;">
+        3
+    </div>
+     <h3 style="margin: 0;">จำนวนพนักงานหลัก</h3>
+</div>
+<p style="color:#555; margin-top:0;">กำหนดจำนวนพนักงานหลักที่ต้องการในแต่ละกะ</p>
+""", unsafe_allow_html=True)
 
 
 cols = st.columns(4)
