@@ -120,7 +120,7 @@ st.markdown("""
 <p style="color:#555; margin-top:0;">2.1 ลือกวันและกะที่สะดวก</p>
 """, unsafe_allow_html=True)
 
-
+st.markdown("2.1 กรอกข้อมูลวันและกะที่พนักงานสะดวกในการทำงาน")
 # --- กรอกเงื่อนไขพนักงาน ---
 #st.subheader("เงื่อนไขพนักงาน (วันและกะที่สะดวก)")
 all_employees_avail = {}
@@ -142,26 +142,7 @@ for idx, name in enumerate(employee_names, start=1):
                 emp_avail[d_num] = []
         all_employees_avail[idx] = emp_avail
 
-st.markdown("""
-<div style="display:flex; align-items:center; margin-left:48px; margin-bottom:4px;">
-    <div style="
-        width: 30px; 
-        height: 30px; 
-        background-color: #40679E; 
-        border-radius: 50%; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        color: white; 
-        font-weight: bold;
-        font-size: 14px;
-        margin-right: 10px;">
-        2.1
-    </div>
-    <h4 style="margin: 0;">วันและกะที่สะดวก</h4>
-</div>
-<p style="color:#555; margin-left:48px; margin-top:0;">กรอกข้อมูลวันและกะที่พนักงานสะดวกในการทำงาน</p>
-""", unsafe_allow_html=True)
+
 
 
 # --- หัวข้อใหญ่พร้อมวงกลมเลข 3 ---
