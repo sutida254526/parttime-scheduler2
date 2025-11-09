@@ -163,8 +163,7 @@ st.markdown("""
 <p style="color:#555; margin-left:48px; margin-top:0;">กรอกข้อมูลวันและกะที่พนักงานสะดวกในการทำงาน</p>
 """, unsafe_allow_html=True)
 
-python
-Copy code
+
 # --- หัวข้อใหญ่พร้อมวงกลมเลข 3 ---
 st.markdown("""
 <div style="display:flex; align-items:center; margin-top:20px; margin-bottom:6px;">
