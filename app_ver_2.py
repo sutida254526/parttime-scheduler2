@@ -78,10 +78,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- กรอกจำนวนพนักงาน ---
-num_employees_total = st.number_input("กรอกจำนวนพนักงานทั้งหมด", min_value=1, value=5, step=1)
+num_employees_total = st.number_input("1.1 กรอกจำนวนพนักงานทั้งหมด", min_value=1, value=5, step=1)
 
 # --- กรอกชื่อพนักงาน ---
-employee_names_input = st.text_input("ระบุหมายเลขพนักงานที่ต้องการจัดตาราง (คั่นด้วย ,) เช่น 1,2,3")
+employee_names_input = st.text_input("1.2 ระบุหมายเลขพนักงานที่ต้องการจัดตาราง (คั่นด้วย ,) เช่น 1,2,3")
 employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
 num_employees = len(employee_names)
 
@@ -94,7 +94,7 @@ num_employees = len(employee_names)
 
 
 # --- เลือกเดือน ---
-month = st.selectbox("เลือกเดือน", ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน",
+month = st.selectbox("1.3 เลือกเดือน", ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน",
                                      "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"])
 
 
