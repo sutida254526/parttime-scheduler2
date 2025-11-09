@@ -142,7 +142,7 @@ for idx, name in enumerate(employee_names, start=1):
         all_employees_avail[idx] = emp_avail
 
 
-
+#จำนวนพนักงานหลัก
 st.markdown("2.2 กำหนดจำนวนพนักงานหลักที่ต้องการในแต่ละกะ")
 
 cols = st.columns(4)
@@ -150,55 +150,16 @@ W_per_t = {}
 for t, col in enumerate(cols, start=1):
     W_per_t[t] = col.number_input(f"กะ{t} ({t*2+9}:00-{t*2+11}:00)", min_value=0, value=1, step=1, key=f"main_{t}")
 
-# --- 4 จำนวนพนักงานสำรองต่อกะ ---
-st.markdown("""
-<div style="display:flex; align-items:center; margin-bottom:10px;">
-    <div style="
-        width: 36px; 
-        height: 36px; 
-        background-color: #1A2A4F; 
-        border-radius: 50%; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        color: white; 
-        font-weight: bold;
-        font-size: 18px;
-        margin-right: 10px;">
-        4
-    </div>
-    <h3 style="margin: 0;">จำนวนพนักงานสำรอง</h3>
-</div>
-<p style="color:#555; margin-top:0;">กรอกจำนวนพนักงานสำรองที่ต้องการในแต่ละกะ</p>
-""", unsafe_allow_html=True)
+#จำนวนพนักงานสำรองต่อกะ 
+st.markdown("2.3 กำหนดจำนวนพนักงานสำรองที่ต้องการในแต่ละกะ")
 
 cols = st.columns(4)
 W_backup = {}
 for t, col in enumerate(cols, start=1):
     W_backup[t] = col.number_input(f"กะ{t} ({t*2+9}:00-{t*2+11}:00)", min_value=0, value=1, step=1, key=f"backup_{t}")
 
-# --- 5 จำกัดจำนวนกะสูงสุด/ต่ำสุดต่อสัปดาห์ ---
-st.markdown("""
-<div style="display:flex; align-items:center; margin-bottom:10px;">
-    <div style="
-        width: 36px; 
-        height: 36px; 
-        background-color: #1A2A4F; 
-        border-radius: 50%; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        color: white; 
-        font-weight: bold;
-        font-size: 18px;
-        margin-right: 10px;">
-        5
-    </div>
-    <h3 style="margin: 0;">จำกัดจำนวนกะ</h3>
-</div>
-<p style="color:#555; margin-top:0;">กำหนดจำนวนกะสูงสุดและต่ำสุด/สัปดาห์ สำหรับพนักงานแต่ละประเภท</p>
-""", unsafe_allow_html=True)
-
+# จำกัดจำนวนกะสูงสุด/ต่ำสุดต่อสัปดาห์ ---
+st.markdown("2.4 กำหนดจำนวนพนักงานสูงสุด/ต่ำสุดต่อสัปดาห์ของพนักงานหลักและสำรอง")
 col1, col2 = st.columns(2)
 with col1:
     st.markdown("**พนักงานหลัก**")
