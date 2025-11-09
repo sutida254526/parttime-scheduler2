@@ -85,6 +85,15 @@ employee_names_input = st.text_input("ระบุหมายเลขพนั
 employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
 num_employees = len(employee_names)
 
+# --- ตรวจสอบจำนวน ---
+if employee_names:
+    if num_employees < num_employees_total:
+        st.warning(f"⚠️ คุณกรอกหมายเลขพนักงานเพียง {num_employees} คน (ควรกรอก {num_employees_total} คน)")
+    elif num_employees > num_employees_total:
+        st.warning(f"⚠️ คุณกรอกหมายเลขพนักงานเกินจำนวน ({num_employees}/{num_employees_total})")
+    else:
+        st.success(f"✅ จำนวนพนักงานครบ {num_employees_total} คน")
+
 # --- แสดงผลหลังกรอก ---
 #if employee_names:
    # st.success(f"✅ มีพนักงานทั้งหมด {num_employees} คน")
