@@ -144,7 +144,7 @@ for idx, name in enumerate(employee_names, start=1):
 
 
 <p style="color:#555; margin-top:0;">2.2 กรอกจำนวนพนักงานหลักที่ต้องการในแต่ละกะ</p>
-""", unsafe_allow_html=True)
+
 
 cols = st.columns(4)
 W_per_t = {}
