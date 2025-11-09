@@ -143,7 +143,7 @@ for idx, name in enumerate(employee_names, start=1):
 
 
 
-st.markdown(2.2 กำหนดจำนวนพนักงานหลักที่ต้องการในแต่ละกะ)
+st.markdown("2.2 กำหนดจำนวนพนักงานหลักที่ต้องการในแต่ละกะ")
 
 cols = st.columns(4)
 W_per_t = {}
