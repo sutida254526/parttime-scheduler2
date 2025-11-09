@@ -85,14 +85,7 @@ employee_names_input = st.text_input("ระบุหมายเลขพนั
 employee_names = [name.strip() for name in employee_names_input.split(",") if name.strip()]
 num_employees = len(employee_names)
 
-# --- ตรวจสอบจำนวน ---
-if employee_names:
-    if num_employees < num_employees_total:
-        st.warning(f"⚠️ คุณกรอกหมายเลขพนักงานเพียง {num_employees} คน (ควรกรอก {num_employees_total} คน)")
-    elif num_employees > num_employees_total:
-        st.warning(f"⚠️ คุณกรอกหมายเลขพนักงานเกินจำนวน ({num_employees}/{num_employees_total})")
-    else:
-        st.success(f"✅ จำนวนพนักงานครบ {num_employees_total} คน")
+
 
 # --- แสดงผลหลังกรอก ---
 #if employee_names:
@@ -122,9 +115,11 @@ st.markdown("""
         margin-right: 10px;">
         2
     </div>
-     <h3 style="margin: 0;">เงื่อนไขพนักงาน (วันและกะที่สะดวก)</h3>
+     <h3 style="margin: 0;">เงื่อนไขพนักงาน</h3>
 </div>
+<p style="color:#555; margin-top:0;">เลือกวันและกะที่สะดวก</p>
 """, unsafe_allow_html=True)
+
 
 # --- กรอกเงื่อนไขพนักงาน ---
 #st.subheader("เงื่อนไขพนักงาน (วันและกะที่สะดวก)")
