@@ -162,7 +162,6 @@ st.markdown("""
 </div>
 <p style="color:#555; margin-left:48px; margin-top:0;">กรอกข้อมูลวันและกะที่พนักงานสะดวกในการทำงาน</p>
 """, unsafe_allow_html=True)
-จากนั้นถัดไปคุณสามารถเพิ่มหัวข้อ 3 ได้ในรูปแบบเดียวกัน เช่น 👇
 
 python
 Copy code
