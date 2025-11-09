@@ -73,9 +73,13 @@ st.markdown("""
         margin-right: 10px;">
         1
     </div>
-     <h3 style="margin: 0;">พนักงานคนที่</h3>
+     <h3 style="margin: 0;">จำนวนพนักงาน</h3>
 </div>
 """, unsafe_allow_html=True)
+
+# --- กรอกจำนวนพนักงาน ---
+st.markdown("### 👥 ขั้นตอนที่ 1: กรอกจำนวนพนักงาน")
+num_employees_total = st.number_input("กรอกจำนวนพนักงานทั้งหมด", min_value=1, value=5, step=1)
 
 # --- กรอกชื่อพนักงาน ---
 employee_names_input = st.text_input("ระบุหมายเลขพนักงานที่ต้องการจัดตาราง (คั่นด้วย ,) เช่น 1,2,3")
