@@ -159,7 +159,7 @@ for t, col in enumerate(cols, start=1):
     W_backup[t] = col.number_input(f"กะ{t} ({t*2+9}:00-{t*2+11}:00)", min_value=0, value=1, step=1, key=f"backup_{t}")
 
 # จำกัดจำนวนกะสูงสุด/ต่ำสุดต่อสัปดาห์ ---
-st.markdown("2.4 กำหนดจำนวนพนักงานสูงสุด/ต่ำสุดต่อสัปดาห์ของพนักงานหลักและสำรอง")
+st.markdown("2.4 กำหนดจำนวนกะสูงสุด/ต่ำสุดต่อสัปดาห์ของพนักงานหลักและสำรอง")
 col1, col2 = st.columns(2)
 with col1:
     st.markdown("**พนักงานหลัก**")
